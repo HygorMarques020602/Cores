@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>title</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <section class="inicio">
+    <h1><span class="um">JOGO </span><span class="dois">DAS </span><span class="tres">CORES</span></h1>
+    <p class="iniciar">INICIAR</p>
+  </section>
+  <section class="principal" style="display: none">
+      <h1><span class="minutos">00:</span><span class="segundos">30</span></h1>
+      <p class="acertos">ACERTOS: <span class="acerto">0</span></p>
+      <ul class="cores1">
+          <div class="cor1"></div>
+          <p>+</p>
+          <div class="cor2"></div>
+          <p>=</p>
+          <div class="cor3">?</div>
+      </ul>
+      <ul class="cores2">
+          <div class="verde" data-valor="3"></div>
+          <div class="laranja" data-valor="1"></div>
+          <div class="roxo" data-valor="2"></div>
+          <div class="rosa"></div>
+          <div class="verde" data-valor="3"></div>
+          <div class="laranja" data-valor="1"></div>
+          <div class="roxo" data-valor="2"></div>
+          <div class="rosa"></div>
+          <div class="vermelho" data-valor="5"></div>
+          <div class="amarelo" data-valor="6"></div>
+          <div class="azul" data-valor="4"></div>
+          <div class="vermelho" data-valor="5"></div>
+          <div class="amarelo" data-valor="6"></div>
+          <div class="azul" data-valor="4"></div>
+          <div class="vermelho" data-valor="5"></div>
+          <div class="amarelo" data-valor="6"></div>
+      </ul>
+  </section>
+  <section class="acertou" style="display: none">
+      <h1>ACERTOU!!!</h1>
+      <p>PRÓXIMA</p>
+  </section>
+  <section class="ganhou" style="display: none">
+    <h1>PARABÉNS!!!!</h1>
+    <a href="index.html">MENU PRINCIPAL</a>
+  </section>
+  <section class="perdeu" style="display: none">
+      <h1>NÃO FOI DESSA VEZ</h1>
+      <a href="index.html">TENTAR NOVAMENTE</a>
+    </section>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/shuffle.js"></script>
+<script>
+
+  velocidade=1;
+  function gerarContador(elemento){
+	return contagem = setInterval(function(){
+   	var tempo = $(elemento).text();
+ 	  tempo = parseInt(tempo) -velocidade;
+ 	$(elemento).text(tempo);
+   	if(tempo == 0){
+    	clearInterval(contagem);
+     	$(atual).fadeOut();
+     	$(".perdeu").fadeIn();
+ 	  }
+ 	}, 1000);
+ 	return false;
+  }
+
+  acertos = 0;
+  atual = null;
+  cores = ["red", "yellow", "blue"];
+  $(".iniciar").on("click",function(){
+
+    $(".inicio").fadeOut();
+    $(".principal").fadeIn();
+
+    contador = gerarContador(".segundos");
+    atual = $(".principal");
+    num1 = Math.floor(Math.random()*3);
+    num2 = Math.floor(Math.random()*3);
+    $(".cor1").css("background-color", cores[num1]);
+    $(".cor2").css("background-color", cores[num2]);
+    if((num1==1)&&(num2==1)){
+      num1=num1+2;
+      num2=num2+2;
+    }
+    if((num1==0)&&(num2==0)){
+      num1=num1+3;
+      num2=num2+2;
+    }
+    var numSoma = num1 + num2;
+
+    if(numSoma==1){
+      var resultadoAleatorio=1;
+    }
+    if(numSoma==2){
+      var resultadoAleatorio=2;
+    }
+    if(numSoma==3){
+      var resultadoAleatorio=3;
+    }
+    if(numSoma==4){
+      var resultadoAleatorio=4;
+    }
+    if(numSoma==5){
+      var resultadoAleatorio=5;
+    }
+    if(numSoma==6){
+      var resultadoAleatorio=6;
+    }
+
+    $(".acertou p").on("click", function(){
+      $(".acertou").fadeOut();
+      $(".principal").fadeIn();
+      clearInterval(contador);
+      $(".segundos").text("30");
+      contador=gerarContador(".segundos");
+      escolhaUsuario=0;
+      resultadoAleatorio=0;
+      num1 = Math.floor(Math.random()*3);
+      num2 = Math.floor(Math.random()*3);
+    $(".cor1").css("background-color", cores[num1]);
+    $(".cor2").css("background-color", cores[num2]);
+    if((num1==1)&&(num2==1)){
+      num1=num1+2;
+      num2=num2+2;
+       }
+       if((num1==0)&&(num2==0)){
+         num1=num1+3;
+         num2=num2+2;
+       }
+       var numSoma = num1 + num2;
+     
+       if(numSoma==1){
+         var resultadoAleatorio=1;
+       }
+       if(numSoma==2){
+         var resultadoAleatorio=2;
+       }
+       if(numSoma==3){
+         var resultadoAleatorio=3;
+       }
+       if(numSoma==4){
+         var resultadoAleatorio=4;
+       }
+       if(numSoma==5){
+         var resultadoAleatorio=5;
+       }
+       if(numSoma==6){
+         var resultadoAleatorio=6;
+       }
+       $(".cores2 div").on("click",function(){
+      var escolhaUsuario = $(this).data("valor");
+      if(resultadoAleatorio==escolhaUsuario){
+        $(".principal").hide();
+        $(".acertou").fadeIn();
+        acertos++;
+        $(".acerto").text(acertos);
+      }else{
+        velocidade++;
+        clearInterval(contador)
+        contador=gerarContador(".segundos");
+      }
+    })
+    })
+    $(".cores2 div").on("click",function(){
+      var escolhaUsuario = $(this).data("valor");
+      if(resultadoAleatorio==escolhaUsuario){
+        $(".principal").hide();
+        $(".acertou").fadeIn();
+        acertos++;
+        $(".acerto").text(acertos);
+      }else{
+
+      }
+    })
+  });
+
+</script>
+</body>
+</html>

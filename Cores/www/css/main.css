@@ -1,0 +1,163 @@
+@font-face {
+     font-family: helveticaneue;
+     src: url('HelveticaNeueLTStd-UltLt.otf');
+}
+
+html { font-size: calc(1em + 1vw); }
+
+body{
+     background: lightgray;
+     font-family: "Impact";
+}
+/* Tela Inicial */
+.inicio{
+     text-align: center;
+}
+.inicio h1{
+     padding-top: 15vh;
+     line-height: 5vh;
+     font-size: 2em;
+}
+.um{
+     color: red;
+}
+.dois{
+     color: yellow;
+}
+.tres{
+     color: blue;
+}
+.inicio p{
+     margin: 25vh 13vw;
+     padding: 5vh;
+     font-size: 3em;
+     background: grey;
+}
+/* Tela Principal */
+.principal h1{
+     background: grey;
+     text-align: center;
+     margin: 0 4vw;
+     margin-top: 4vh;
+     padding: 3vh 0;
+     font-size: 3em;
+}
+.principal ul{
+     display: flex;
+     text-align: center;
+     padding-left: 2vw;
+     margin-bottom: 2vh;
+}
+.principal .cores1 p{
+     font-size: 2em;
+     margin: 0 2vw 0 2vw;
+     padding-top: 4vh;
+     font-weight: bold;
+}
+/* Tela Acertou */
+.acertou{
+     text-align: center;
+     background: transparent;
+}
+.acertou h1{
+     font-size: 2em;
+     line-height: 7vh;
+     margin-top: 35vh;
+}
+.acertou p{
+     font-size: 1.5em;
+     background: grey;
+     padding: 5vh 0;
+     margin: 0 10vw;
+}
+/* Tela Ganhou */
+.ganhou{
+     text-align: center;
+}
+.ganhou h1{
+     font-size: 2.6em;
+     margin: 30vh 5vw; 
+}
+.ganhou a{
+     text-decoration: none;
+     color: black;
+     background: grey;
+     padding: 5vh;
+     font-size: 1.5em; 
+}
+/* Tela Perdeu */
+.perdeu{
+     text-align: center;
+}
+.perdeu h1{
+     font-size: 2.6em;
+     margin: 30vh 5vw; 
+}
+.perdeu a{
+     text-decoration: none;
+     color: black;
+     background: grey;
+     padding: 5vh;
+     font-size: 1.5em; 
+}
+/* Gráficos Gerais */
+.acertos{
+     font-size: 1.5em;
+     text-align: center;
+     margin: 1vh 0;
+}
+
+.cores1 div{
+     width: 25.4vw;
+     height: 14vh;
+}
+.cor1{
+     background: yellow;
+     border-radius: 50%;
+}
+
+.cor2{
+     background: red;
+     border-radius: 50%;
+}
+
+.cor3{
+     background: white;
+     border-radius: 50%;
+     box-sizing: border-box;
+     text-align: center;
+     padding-top: 3vh;
+     font-size: 2.5em;
+}
+
+.cores2{
+     display: flex;
+     flex-wrap: wrap;
+}
+.cores2 div{
+     padding: 6.5vh 11vw;
+     margin: 0.5vh 1vw;
+}
+
+
+.verde{
+     background: green;
+}
+.laranja{
+     background: orange;
+}
+.roxo{
+     background: purple;
+}
+.rosa{
+     background: violet;
+}
+.azul{
+     background: blue;
+}
+.vermelho{
+     background: red;
+}
+.amarelo{
+     background: yellow;
+}
